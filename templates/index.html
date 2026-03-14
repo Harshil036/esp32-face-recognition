@@ -32,13 +32,14 @@
 
 <br><br>
 
-<button onclick="createEvent()">Create Event</button>
+<button onclick="createNewEvent()">Create Event</button>
 <button onclick="startRecognition()">Start Recognition</button>
 <button onclick="stopRecognition()">End Recognition</button>
+<button onclick="downloadAttendance()">Download Attendance</button>
 
 <script>
 
-async function createEvent() {
+async function createNewEvent() {
 
     const name = prompt("Enter Event Name:");
     if (!name) return;
@@ -63,7 +64,7 @@ async function startRecognition() {
     const data = await res.json();
 
     if(data.error){
-        alert(data.error);
+        alert("⚠️ " + data.error);
         return;
     }
 
@@ -80,6 +81,10 @@ async function stopRecognition() {
     const data = await res.json();
 
     alert("Recognition Stopped ⛔");
+}
+
+    function downloadAttendance(){
+    window.location.href = "/download_attendance";
 }
 
 </script>

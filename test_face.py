@@ -1,3 +1,9 @@
-import face_recognition
+import cv2
 
-print("face_recognition working ✅")
+detector = cv2.FaceDetectorYN.create(
+    "models/yunet.onnx",
+    "",
+    (320,320)
+)
+
+print("YuNet Loaded Successfully ✅")
